@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const port = 3000;
 
 const server = http.createServer(function (req,res){
 
@@ -34,13 +33,17 @@ const server = http.createServer(function (req,res){
             }
         });
     }else {
-        const data = fs.readFileSync('./public/404.html')
+        let data = fs.readFileSync('./public/404.html');
         res.writeHead(404, {'Content-Type': 'text/html'});
         res.write(data);
         res.end();
     }
 
+    
+
 
 });
 
+server.listen(3000);
 console.log("Server is Running Successfully ");
+
